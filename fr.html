@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aithenor — Intelligence Commerciale Hôtelière propulsée par l'IA</title>
+<meta name="description" content="Aithenor est l'intelligence commerciale hôtelière propulsée par l'IA — conçue par des hôteliers pour des hôteliers. Croise STR, PMS, pipeline groupes et coûts pour identifier les causes racines, prioriser les actions et générer des décisions nommées. Chaque semaine, automatiquement.">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
+
+<!-- Google Search Console verification -->
+<meta name="google-site-verification" content="kKxKqzaxuW-_q9OpF8saurQq2CrZ8ghLrEfLygszMAo" />
+
+<!-- SEO: Canonical -->
+<link rel="canonical" href="https://www.aithenor.com/fr" />
+
+<!-- SEO: Hreflang — signals French/English versions to Google -->
+<link rel="alternate" hreflang="fr" href="https://www.aithenor.com/fr" />
+<link rel="alternate" hreflang="en" href="https://www.aithenor.com/" />
+<link rel="alternate" hreflang="x-default" href="https://www.aithenor.com/" />
+
+<!-- SEO: Open Graph -->
+<meta property="og:type"        content="website" />
+<meta property="og:url"         content="https://www.aithenor.com/fr" />
+<meta property="og:title"       content="Aithenor — Intelligence Commerciale Hôtelière propulsée par l'IA" />
+<meta property="og:description" content="Croise STR, PMS, pipeline groupes et coûts pour identifier les causes racines et générer des décisions commerciales nommées — chaque semaine. Conçu pour les Directeurs Généraux, Directeurs Commerciaux et Revenue Managers." />
+<meta property="og:image"       content="https://www.aithenor.com/og-image.png" />
+<meta property="og:site_name"   content="Aithenor" />
+<meta property="og:locale"      content="fr_FR" />
+
+<!-- SEO: Twitter / X Card -->
+<meta name="twitter:card"        content="summary_large_image" />
+<meta name="twitter:title"       content="Aithenor — Intelligence Commerciale Hôtelière propulsée par l'IA" />
+<meta name="twitter:description" content="Croise STR, PMS, pipeline groupes et coûts pour identifier les causes racines et générer des décisions commerciales nommées — chaque semaine." />
+<meta name="twitter:image"       content="https://www.aithenor.com/og-image.png" />
+
+<!-- SEO: JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Aithenor",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://www.aithenor.com/fr",
+  "description": "Intelligence commerciale hôtelière propulsée par l'IA. Croise STR, PMS, pipeline groupes et coûts pour identifier les causes racines, prioriser les actions et générer des décisions nommées pour Directeurs Généraux, Directeurs Commerciaux et Revenue Managers.",
+  "inLanguage": "fr",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "description": "Demander un accès — onboarding sous 48 heures"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Aithenor",
+    "url": "https://www.aithenor.com"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Directeurs Généraux d'hôtel, Directeurs Revenue, Directeurs Commerciaux, Asset Managers"
+  }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A1628;
+  --navy-mid: #0F1F3D;
+  --navy-light: #1B3A6B;
+  --gold: #B8973A;
+  --gold-light: #D4AC52;
+  --gold-pale: #F5EDD6;
+  --white: #FFFFFF;
+  --cream: #FAF9F6;
+  --gray: #8A8A85;
+  --gray-light: #E8E8E3;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── CURSOR ──────────────────────────────── */
+* { cursor: default; }
+a, button { cursor: pointer; }
+
+/* ── NAV ─────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s, backdrop-filter 0.4s;
+}
+
+nav.scrolled {
+  background: rgba(10, 22, 40, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--gold); }
+
+.nav-right { display: flex; align-items: center; gap: 32px; }
+
+.nav-link {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+
+.nav-link:hover { color: var(--white); }
+
+.nav-cta {
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.5);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 9px 22px;
+  border-radius: 3px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.2s;
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+/* ── HERO ─────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 60px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background grid */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+/* Radial glow */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.2s;
+}
+
+.eyebrow-line {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.eyebrow-text {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -1px;
+  max-width: 900px;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 52px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.6s;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.8s;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 16px 36px;
+  border: none;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-primary:hover::after { opacity: 1; }
+
+.btn-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  font-weight: 400;
+  padding: 16px 0;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.btn-ghost:hover { color: var(--white); }
+.btn-ghost-arrow { font-size: 16px; transition: transform 0.2s; }
+.btn-ghost:hover .btn-ghost-arrow { transform: translateX(4px); }
+
+/* ── STATS BAR ───────────────────────────── */
+.stats-bar {
+  display: flex;
+  gap: 0;
+  margin-top: 80px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 1s;
+}
+
+.stat-item {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.stat-item:not(:last-child) {
+  border-right: 1px solid rgba(255,255,255,0.08);
+  margin-right: 40px;
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
+/* ── HOW IT WORKS ────────────────────────── */
+.section {
+  padding: 120px 60px;
+  position: relative;
+}
+
+.section-light {
+  background: var(--cream);
+  color: var(--navy);
+}
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-eyebrow-line {
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.section-title em { font-style: italic; color: var(--gold); }
+.section-light .section-title { color: var(--navy); }
+.section-light .section-title em { color: var(--navy-light); }
+
+.section-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 64px;
+}
+
+.section-light .section-sub { color: rgba(10,22,40,0.5); }
+
+/* ── STEPS ───────────────────────────────── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.step-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 40px 36px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.step-card:hover { background: rgba(201,168,76,0.04); }
+
+.step-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: rgba(201,168,76,0.15);
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+
+.step-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+}
+
+/* ── MODULES ─────────────────────────────── */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--gray-light);
+}
+
+.module-card {
+  background: var(--cream);
+  padding: 40px;
+  transition: background 0.2s;
+}
+
+.module-card:hover { background: #F0EDE6; }
+
+.module-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,0.1);
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.module-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.module-desc {
+  font-size: 14px;
+  color: rgba(10,22,40,0.5);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.module-metric {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: var(--navy-light);
+  font-style: italic;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-light);
+}
+
+/* ── AUDIENCE ────────────────────────────── */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+}
+
+.audience-card {
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 36px 32px;
+  border-radius: 2px;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.audience-card:hover {
+  border-color: rgba(201,168,76,0.3);
+  background: rgba(201,168,76,0.03);
+}
+
+.audience-role {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.audience-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.audience-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.65;
+}
+
+/* ── CTA SECTION ─────────────────────────── */
+.cta-section {
+  padding: 120px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.cta-title em { font-style: italic; color: var(--gold); }
+
+.cta-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 48px;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+/* ── FOOTER ──────────────────────────────── */
+footer {
+  padding: 40px 60px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ── MODAL OVERLAY ───────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 12, 25, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  padding: 20px;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: var(--navy-mid);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 560px;
+  padding: 52px 48px;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-overlay.open .modal { transform: translateY(0); }
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.3);
+  font-size: 22px;
+  line-height: 1;
+  transition: color 0.2s;
+  font-family: 'Outfit', sans-serif;
+}
+
+.modal-close:hover { color: var(--white); }
+
+.modal-eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.modal-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+/* Form */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.form-group.full { grid-column: 1/-1; }
+
+.form-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  font-weight: 500;
+}
+
+.form-input, .form-select {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  padding: 12px 16px;
+  border-radius: 3px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  appearance: none;
+}
+
+.form-input::placeholder { color: rgba(255,255,255,0.2); }
+.form-input:focus, .form-select:focus { border-color: rgba(201,168,76,0.5); }
+
+.form-select option { background: var(--navy-mid); color: var(--white); }
+
+.form-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 24px 0;
+}
+
+.form-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 15px;
+  border: none;
+  border-radius: 3px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.form-submit:hover { background: var(--gold-light); }
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.form-note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+
+/* Success state */
+.modal-success {
+  text-align: center;
+  padding: 20px 0;
+  display: none;
+}
+
+.success-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.success-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.success-text {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.65;
+}
+
+/* ── ANIMATIONS ──────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">AITHEN<span>OR</span></a>
+  <div class="nav-right">
+    <a href="#how" class="nav-link">Comment ça marche</a>
+    <a href="#modules" class="nav-link">Plateforme</a>
+    <a href="#audience" class="nav-link">Pour qui</a>
+    <a href="https://www.aithenor.com/" class="nav-link" style="color:rgba(255,255,255,0.4); font-size:12px; letter-spacing:0.08em;">EN</a>
+<a href="https://app.aithenor.com" class="nav-cta" style="text-decoration:none; margin-right:8px;">Connexion</a>
+<button class="nav-cta" onclick="openModal()">Demander l'accès</button>  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <div class="eyebrow-line"></div>
+    <div class="eyebrow-text">IA conçue par des hôteliers · Pour toutes les catégories d'hôtels</div>
+  </div>
+  <h1 class="hero-headline">
+    Intelligence commerciale hôtelière.<br><em>Propulsée par l'IA.</em>
+  </h1>
+  <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(20px,2.2vw,30px); font-weight:300; font-style:italic; color:rgba(255,255,255,0.35); margin-bottom:8px; margin-top:-16px;">
+    Nous avons vécu le problème. Puis nous avons construit la solution.
+  </p>
+  <p class="hero-sub">
+    Vos données STR, PMS, pipeline groupes et coûts contiennent déjà les réponses à vos plus grandes questions commerciales. Aithenor les croise simultanément — identifie les causes racines, priorise les actions et génère des décisions nommées avec leurs conséquences financières. Chaque semaine, automatiquement.
+  </p>
+  <div class="hero-actions">
+    <button class="btn-primary" onclick="openModal()">Request Access</button>
+    <a href="#how" class="btn-ghost">See how it works <span class="btn-ghost-arrow">→</span></a>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">6</div>
+      <div class="stat-label">Modules interconnectés couvrant chaque levier commercial et de coûts</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Sources de données croisées simultanément — STR, PMS, groupes, coûts</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">Hebdo</div>
+      <div class="stat-label">Nouveau diagnostic à chaque cycle — aucune analyse manuelle requise</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">Nommé</div>
+      <div class="stat-label">Chaque décision est suivie par nom — Aithenor vous dit si elle a fait bouger les chiffres</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="section-eyebrow">
+    <div class="section-eyebrow-line"></div>
+    <div class="section-eyebrow-text">Comment ça marche</div>
+  </div>
+  <h2 class="section-title reveal">Vos données entrent.<br><em>La clarté commerciale en sort.</em></h2>
+  <p class="section-sub reveal">Aucun analyste requis. Aucun reporting manuel. Connectez vos sources de données et Aithenor fait ce que ferait un directeur commercial senior — sur chaque source simultanément, chaque semaine.</p>
+
+  <div class="steps-grid reveal">
+    <div class="step-card">
+      <div class="step-number">01</div>
+      <div class="step-title">Connectez vos données</div>
+      <div class="step-text">STR, segments PMS, pipeline groupes et données de coûts. Intégrations directes avec Opera, Mews, Apaleo et STR. Pour les établissements qui démarrent aujourd'hui, une synchronisation sécurisée simple gère tout — sans intervention IT, sans configuration.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">02</div>
+      <div class="step-title">Le moteur diagnostique</div>
+      <div class="step-text">Aithenor croise chaque source simultanément — comme le ferait votre meilleur directeur commercial, mais en quelques secondes. Il identifie les causes racines, pas les symptômes, validées par l'historique de votre établissement et les benchmarks marché en temps réel.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">03</div>
+      <div class="step-title">Agissez avec une clarté totale</div>
+      <div class="step-text">Décisions priorisées sur six modules. Chacune vous donne la situation, la cause racine, l'action exacte, le responsable et la conséquence en revenus ou coûts. Votre réunion commerciale commence par des conclusions — pas des questions.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SURFACES -->
+<section class="section" id="modules">
+  <div class="section-eyebrow">
+    <div class="section-eyebrow-line"></div>
+    <div class="section-eyebrow-text">Dans Aithenor</div>
+  </div>
+  <h2 class="section-title reveal">Tout ce dont votre équipe<br><em>commerciale a besoin. Une plateforme.</em></h2>
+  <p class="section-sub reveal">Six modules conçus sur mesure. Chacun répond à une question commerciale précise — et connecté à tous les autres.</p>
+
+  <div class="modules-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+
+    <div class="module-card">
+      <div class="module-tag">Tableau de Bord Commercial</div>
+      <div class="module-title">Votre vision commerciale complète. Chaque semaine.</div>
+      <div class="module-desc">Analyse multi-segments croisée entre STR, PMS et pipeline groupes. Diagnostic de part de marché, validation des tarifs, glissement du mix segments et rythme prévisionnel — tout en un seul écran. Classé par impact revenus pour savoir exactement où concentrer l'action.</div>
+      <div class="module-metric">Causes racines identifiées. Décisions classées. Conséquences financières quantifiées.</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-tag">Briefing Directeur Général</div>
+      <div class="module-title">Le résumé exécutif dont votre DG a besoin — sans la préparation.</div>
+      <div class="module-desc">Briefing narratif généré par l'IA à partir de vos données en temps réel. Situation, diagnostic, priorités et décisions — en langage clair. Prêt avant chaque réunion commerciale, revue propriétaire ou comité de direction. Aucun résumé manuel. Aucune interprétation requise.</div>
+      <div class="module-metric">Prêt pour le DG en quelques secondes. Zéro effort manuel.</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-tag">Intelligence Hebdomadaire</div>
+      <div class="module-title">Qu'a changé cette semaine — et les décisions de la semaine dernière ont-elles fonctionné ?</div>
+      <div class="module-desc">Comparaison instantanée côte à côte chaque semaine. Signaux suivis comme NOUVEAU, PERSISTANT ou RÉSOLU. Décisions suivies comme ACTIONNÉE, MISE À JOUR ou INCHANGÉE. Responsabilité totale sur ce qui a été recommandé, fait et livré.</div>
+      <div class="module-metric">Responsabilité des décisions intégrée. Rien ne passe entre les mailles.</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-tag">Comptes Négociés</div>
+      <div class="module-title">Quels comptes négociés sont en retard — et quel est le chiffre d'affaires à risque ?</div>
+      <div class="module-desc">Chaque compte négocié suivi individuellement. Rythme vs l'an dernier, écart en nuitées, exposition revenus, account manager et secteur — tout visible sur un seul tableau de bord. Les comptes en retard sont signalés automatiquement avec une action de récupération priorisée.</div>
+      <div class="module-metric">Comptes nommés. Risque nommé. Action nommée.</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-tag">Prospection Commerciale</div>
+      <div class="module-title">Prospection pilotée par l'intelligence — pas un CRM générique.</div>
+      <div class="module-desc">Comptes corporate, agences de voyages, organisateurs d'événements, DMC, associations et administrations — scorés par potentiel de production par rapport à vos manques actuels. Modèles de prospection en français, anglais et arabe. Votre déficit pipeline pilote votre liste de prospection.</div>
+      <div class="module-metric">Prospection alignée sur votre déficit de revenus réel.</div>
+    </div>
+
+    <div class="module-card" style="opacity:0.65;">
+      <div class="module-tag">Coûts & Efficacité RH <span style="font-size:10px;font-weight:600;color:#B8973A;margin-left:8px;text-transform:uppercase;letter-spacing:0.08em;">Bientôt disponible</span></div>
+      <div class="module-title">Planifions-nous selon nos prévisions — ou selon ce que nous avons fait le mois dernier ?</div>
+      <div class="module-desc">Calcule les effectifs précis requis par département selon vos prévisions d'occupation. Quantifie le coût quotidien de l'écart entre les plannings et les besoins réels — Housekeeping, F&B, Réception, chaque jour.</div>
+      <div class="module-metric">Coûts RH alignés sur la demande réelle — pas sur l'habitude.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DIAGNOSTIC PROBLEMS -->
+<section class="section section-light">
+  <div class="section-eyebrow">
+    <div class="section-eyebrow-line"></div>
+    <div class="section-eyebrow-text">Ce qu'Aithenor résout</div>
+  </div>
+  <h2 class="section-title reveal">Les problèmes que chaque équipe<br><em>commerciale hôtelière rencontre.</em></h2>
+  <p class="section-sub reveal" style="color:rgba(10,22,40,0.45);">Nous avons vécu le problème. Puis nous avons construit la solution. These are not hypothetical problems.</p>
+
+  <div class="modules-grid reveal">
+    <div class="module-card">
+      <div class="module-tag">Revenue · Market Share</div>
+      <div class="module-title">Nous perdons des parts de marché mais personne ne s'accorde sur la raison.</div>
+      <div class="module-desc">Aithenor croise MPI, ARI et RGI avec votre mix segments et votre rythme prévisionnel simultanément — et identifie la cause exacte. Déficit de visibilité OTA, sous-performance des comptes négociés, déplacement groupes ou désalignement tarifaire. Une lecture. Une réponse.</div>
+      <div class="module-metric">Cause racine identifiée. Coût financier quantifié.</div>
+    </div>
+    <div class="module-card">
+      <div class="module-tag">Revenue · Pricing & Pace</div>
+      <div class="module-title">Notre rythme prévisionnel est-il un problème tarifaire — ou un problème de demande ?</div>
+      <div class="module-desc">Suit le OTB à 30, 60 et 90 jours par rapport à l'an dernier par segment. Distingue un problème spécifique à l'hôtel d'un ralentissement général du marché — pour ne jamais baisser les tarifs quand le marché ne l'exige pas, et ne jamais les maintenir quand il le demande.</div>
+      <div class="module-metric">Chaque décision tarifaire protégée d'une intelligence incomplète.</div>
+    </div>
+    <div class="module-card">
+      <div class="module-tag">Revenue · Groups Pipeline</div>
+      <div class="module-title">Notre pipeline groupes est en retard — où est passé le business ?</div>
+      <div class="module-desc">Analyse le pipeline en ferme, tentative et prospect par rapport à l'an dernier. Quantifie le déficit de revenus par fenêtre temporelle et calcule exactement combien chaque groupe confirmé comblerait. Transforme un déficit pipeline en plan de récupération commerciale précis.</div>
+      <div class="module-metric">Déficit quantifié. Actions de récupération classées.</div>
+    </div>
+    <div class="module-card">
+      <div class="module-tag">Revenue · Segment Mix</div>
+      <div class="module-title">Notre ADR semble correct — mais la rentabilité s'érode. Pourquoi ?</div>
+      <div class="module-desc">Détecte les glissements de mix segments qui diluent la qualité tarifaire sans apparaître dans l'ADR global — volume négocié déplaçant le transitionnel, concentration OTA croissante, allocation grossiste désalignée. Identifie la correction de mix et les revenus qu'elle récupère.</div>
+      <div class="module-metric">Mix shift identified before it becomes a P&amp;L problem.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST & DATA SECURITY -->
+<section class="section" style="padding-top: 60px; padding-bottom: 60px;">
+  <div class="section-eyebrow">
+    <div class="section-eyebrow-line"></div>
+    <div class="section-eyebrow-text">Sécurité des Données</div>
+  </div>
+  <h2 class="section-title reveal">Les données de votre établissement<br><em>vous appartiennent. Toujours.</em></h2>
+  <p class="section-sub reveal">Les données commerciales hôtelières sont sensibles. Nous les traitons comme telles.</p>
+
+  <div class="steps-grid reveal" style="margin-top: 40px;">
+    <div class="step-card">
+      <div class="step-number" style="font-size:22px;">🔒</div>
+      <div class="step-title">Isolées par établissement</div>
+      <div class="step-text">Les données de chaque hôtel sont stockées dans un environnement dédié et isolé. Sécurité au niveau des lignes appliquée au niveau base de données. Aucun établissement ne peut accéder aux données d'un autre — par architecture, pas par politique.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number" style="font-size:22px;">🚫</div>
+      <div class="step-title">Jamais partagées. Jamais vendues.</div>
+      <div class="step-text">Vos données STR, PMS et pipeline sont utilisées uniquement pour générer l'analyse de votre établissement. Elles ne sont jamais partagées avec des tiers, jamais agrégées pour des produits de benchmarking, et jamais utilisées pour entraîner des modèles sans votre consentement.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number" style="font-size:22px;">🛡️</div>
+      <div class="step-title">Chiffrées en transit et au repos</div>
+      <div class="step-text">Toutes les données sont chiffrées de bout en bout. Les connexions sont sécurisées via HTTPS. Le stockage est chiffré au repos. L'accès est contrôlé par des sessions authentifiées sans identifiants partagés entre établissements.</div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="section" id="audience">
+  <div class="section-eyebrow">
+    <div class="section-eyebrow-line"></div>
+    <div class="section-eyebrow-text">Pour qui</div>
+  </div>
+  <h2 class="section-title reveal">Conçu pour les personnes<br><em>responsables des résultats.</em></h2>
+  <div class="audience-grid reveal">
+    <div class="audience-card">
+      <div class="audience-role">Directeur Général</div>
+      <div class="audience-title">Entrez dans chaque réunion commerciale en connaissant déjà la réponse</div>
+      <div class="audience-text">Le Revenue a le STR. Le Commercial a le pipeline. La Finance a le P&L. Personne n'a la vue d'ensemble avant le lundi matin — et à ce moment-là, la semaine a déjà commencé. Aithenor vous donne la vision commerciale complète, en langage clair, avant que la réunion commence. Pas de tableurs. Pas de préparation. Juste de la clarté.</div>
+    </div>
+    <div class="audience-card">
+      <div class="audience-role">Directeur Commercial · Directeur Revenue</div>
+      <div class="audience-title">Consacrez votre expertise à décider — pas à investiguer</div>
+      <div class="audience-text">L'analyse croisée est déjà faite. STR, PMS, pipeline et coûts — réconciliés, diagnostiqués et priorisés avant que vous ouvriez le tableau de bord. Causes racines identifiées. Impact revenus quantifié. Votre expertise va dans la décision, pas dans la construction du dossier.</div>
+    </div>
+    <div class="audience-card">
+      <div class="audience-role">Asset Manager · Propriétaire</div>
+      <div class="audience-title">Visibilité totale sur ce qui a été identifié, actionné — et ce que cela a produit</div>
+      <div class="audience-text">Chaque recommandation porte un impact commercial quantifié et un suivi structuré. Voyez exactement ce que votre équipe a actionné, ce qui a été différé et si cela a fait bouger les chiffres. Pas de narration. Pas d'ambiguïté. Responsabilité intégrée dès le premier jour.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title reveal">Votre réunion commerciale<br><em>commence différemment maintenant.</em></h2>
+  <p class="cta-sub reveal">Demandez l'accès. Onboardé personnellement sous 48 heures. Premier diagnostic complet la même semaine.</p>
+  <div class="reveal">
+    <button class="btn-primary" onclick="openModal()" style="font-size: 14px; padding: 18px 48px;">Demander l'accès</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Aithenor</div>
+  <div class="footer-text">© 2026 Aithenor. Intelligence commerciale hôtelière, propulsée par l'IA. Conçue par des hôteliers, pour des hôteliers.</div>
+</footer>
+
+<!-- REGISTRATION MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+
+    <!-- Form -->
+    <div id="modal-form">
+      <div class="modal-eyebrow">Request Access</div>
+      <h3 class="modal-title">Demandez votre accès</h3>
+      <p class="modal-sub">Chaque établissement est onboardé personnellement. Nous examinerons vos informations et vous contacterons sous 24 heures.</p>
+
+      <form onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Prénom *</label>
+            <input class="form-input" type="text" id="firstName" placeholder="Jean" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nom *</label>
+            <input class="form-input" type="text" id="lastName" placeholder="Dupont" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email professionnel *</label>
+          <input class="form-input" type="email" id="email" placeholder="j.dupont@hotelname.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Votre rôle *</label>
+          <select class="form-select" id="role" required>
+            <option value="" disabled selected>Sélectionnez votre rôle</option>
+            <option>Directeur Général</option>
+            <option>Directeur Commercial</option>
+            <option>Directeur Revenue</option>
+            <option>Directeur du Revenue Management</option>
+            <option>Asset Manager</option>
+            <option>Propriétaire d'hôtel</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <div class="form-group">
+          <label class="form-label">Nom de l'hôtel *</label>
+          <input class="form-input" type="text" id="hotelName" placeholder="Hotel Name" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Ville *</label>
+            <input class="form-input" type="text" id="city" placeholder="Paris" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pays *</label>
+            <input class="form-input" type="text" id="country" placeholder="France" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nombre de chambres *</label>
+            <input class="form-input" type="number" id="rooms" placeholder="150" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Catégorie d'hôtel *</label>
+            <select class="form-select" id="category" required>
+              <option value="" disabled selected>Catégorie</option>
+              <option>Luxury Independent</option>
+              <option>Luxury Chain</option>
+              <option>Upper Upscale Independent</option>
+              <option>Upper Upscale Chain</option>
+              <option>Upscale Independent</option>
+              <option>Upscale Chain</option>
+              <option>Upper Midscale</option>
+              <option>Midscale</option>
+              <option>Boutique / Lifestyle</option>
+              <option>Resort</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="form-submit" type="submit" id="submit-btn">Demander l'accès →</button>
+        <p class="form-note">Vos données sont traitées de manière confidentielle. Nous ne partageons jamais les informations de l'établissement avec des tiers.</p>
+      </form>
+    </div>
+
+    <!-- Success -->
+    <div class="modal-success" id="modal-success">
+      <div class="success-icon">✦</div>
+      <h3 class="success-title">Demande reçue.</h3>
+      <p class="success-text">Merci. Nous examinerons les informations de votre établissement et vous contacterons sous 24 heures avec vos identifiants d'accès et les instructions d'onboarding.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── MODAL ──────────────────────────────────────────────
+function openModal() {
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+// ── FORM SUBMIT ────────────────────────────────────────
+async function submitForm(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const payload = {
+    firstName:  document.getElementById('firstName').value,
+    lastName:   document.getElementById('lastName').value,
+    email:      document.getElementById('email').value,
+    role:       document.getElementById('role').value,
+    hotelName:  document.getElementById('hotelName').value,
+    city:       document.getElementById('city').value,
+    country:    document.getElementById('country').value,
+    rooms:      document.getElementById('rooms').value,
+    category:   document.getElementById('category').value,
+    submittedAt: new Date().toISOString(),
+  };
+
+  // Save to Supabase leads table
+  try {
+    const SUPABASE_URL = 'https://fpnlzpfkygsyvkettjuj.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwbmx6cGZreWdzeXZrZXR0anVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzMDM1NzIsImV4cCI6MjA4ODg3OTU3Mn0.VsfqeclitY91kpn-qS2NBg94BJA99YMgtrmlC9Wz8ns';
+
+    await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        first_name:  payload.firstName,
+        last_name:   payload.lastName,
+        email:       payload.email,
+        role:        payload.role,
+        hotel_name:  payload.hotelName,
+        city:        payload.city,
+        country:     payload.country,
+        total_rooms: parseInt(payload.rooms),
+        category:    payload.category,
+        status:      'New',
+        submitted_at: payload.submittedAt,
+      })
+    });
+  } catch(err) {
+    console.log('Supabase save attempted:', err.message);
+  }
+
+  // Show success regardless
+  document.getElementById('modal-form').style.display = 'none';
+  document.getElementById('modal-success').style.display = 'block';
+}
+
+// ── NAV SCROLL ─────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ── REVEAL ON SCROLL ───────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── KEYBOARD CLOSE ─────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+</body>
+</html>

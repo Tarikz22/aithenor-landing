@@ -17,4 +17,36 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.aithenor.com/fr"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.aithenor.com/"/>
   </url>
+  <url>
+    <loc>https://www.aithenor.com/strategie-commerciale-hotel</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.aithenor.com/strategie-commerciale-hotel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aithenor.com/hotel-commercial-strategy"/>
+  </url>
+  <url>
+    <loc>https://www.aithenor.com/revenue-management-ia-hotel</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.aithenor.com/revenue-management-ia-hotel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aithenor.com/hotel-revenue-management-ai"/>
+  </url>
+  <url>
+    <loc>https://www.aithenor.com/hotel-commercial-strategy</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aithenor.com/hotel-commercial-strategy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.aithenor.com/strategie-commerciale-hotel"/>
+  </url>
+  <url>
+    <loc>https://www.aithenor.com/hotel-revenue-management-ai</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aithenor.com/hotel-revenue-management-ai"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.aithenor.com/revenue-management-ia-hotel"/>
+  </url>
 </urlset>

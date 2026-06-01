@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Revenue Management AI — Beyond Forecasting, Toward Decision | Aithenor</title>
+<meta name="description" content="Most AI tools for hotels do forecasting. Aithenor does something harder: causal chain diagnosis across STR, PMS, pipeline and cost — with named decisions and tracked outcomes. Built by hoteliers for every hotel category.">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
+<meta name="google-site-verification" content="kKxKqzaxuW-_q9OpF8saurQq2CrZ8ghLrEfLygszMAo" />
+<link rel="canonical" href="https://www.aithenor.com/hotel-revenue-management-ai" />
+<link rel="alternate" hreflang="en" href="https://www.aithenor.com/hotel-revenue-management-ai" />
+<link rel="alternate" hreflang="fr" href="https://www.aithenor.com/revenue-management-ia-hotel" />
+<link rel="alternate" hreflang="x-default" href="https://www.aithenor.com/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.aithenor.com/hotel-revenue-management-ai" />
+<meta property="og:title" content="Hotel Revenue Management AI — Beyond Forecasting, Toward Decision" />
+<meta property="og:description" content="Most AI tools for hotels do forecasting. Aithenor does something harder: causal chain diagnosis across STR, PMS, pipeline and cost — named decisions, tracked outcomes." />
+<meta property="og:image" content="https://www.aithenor.com/og-image.png" />
+<meta property="og:site_name" content="Aithenor" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hotel Revenue Management AI — Beyond Forecasting, Toward Decision" />
+<meta name="twitter:description" content="Most AI tools for hotels do forecasting. Aithenor does something harder: causal chain diagnosis across STR, PMS, pipeline and cost — named decisions, tracked outcomes." />
+<meta name="twitter:image" content="https://www.aithenor.com/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Hotel Revenue Management AI — Beyond Forecasting, Toward Decision",
+  "description": "Hotel revenue management AI: what actually changes when AI moves from forecasting to decision-making.",
+  "inLanguage": "en",
+  "url": "https://www.aithenor.com/hotel-revenue-management-ai",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aithenor",
+    "url": "https://www.aithenor.com"
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A1628;
+  --navy-mid: #0F1F3D;
+  --navy-light: #1B3A6B;
+  --gold: #B8973A;
+  --gold-light: #D4AC52;
+  --gold-pale: #F5EDD6;
+  --white: #FFFFFF;
+  --cream: #FAF9F6;
+  --gray: #8A8A85;
+  --gray-light: #E8E8E3;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── CURSOR ──────────────────────────────── */
+* { cursor: default; }
+a, button { cursor: pointer; }
+
+/* ── NAV ─────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s, backdrop-filter 0.4s;
+}
+
+nav.scrolled {
+  background: rgba(10, 22, 40, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--gold); }
+
+.nav-right { display: flex; align-items: center; gap: 32px; }
+
+.nav-link {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+
+.nav-link:hover { color: var(--white); }
+
+.nav-cta {
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.5);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 9px 22px;
+  border-radius: 3px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.2s;
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+/* ── HERO ─────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 60px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background grid */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+/* Radial glow */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.2s;
+}
+
+.eyebrow-line {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.eyebrow-text {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -1px;
+  max-width: 900px;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 52px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.6s;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.8s;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 16px 36px;
+  border: none;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-primary:hover::after { opacity: 1; }
+
+.btn-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  font-weight: 400;
+  padding: 16px 0;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.btn-ghost:hover { color: var(--white); }
+.btn-ghost-arrow { font-size: 16px; transition: transform 0.2s; }
+.btn-ghost:hover .btn-ghost-arrow { transform: translateX(4px); }
+
+/* ── STATS BAR ───────────────────────────── */
+.stats-bar {
+  display: flex;
+  gap: 0;
+  margin-top: 80px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 1s;
+}
+
+.stat-item {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.stat-item:not(:last-child) {
+  border-right: 1px solid rgba(255,255,255,0.08);
+  margin-right: 40px;
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
+/* ── HOW IT WORKS ────────────────────────── */
+.section {
+  padding: 120px 60px;
+  position: relative;
+}
+
+.section-light {
+  background: var(--cream);
+  color: var(--navy);
+}
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-eyebrow-line {
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.section-title em { font-style: italic; color: var(--gold); }
+.section-light .section-title { color: var(--navy); }
+.section-light .section-title em { color: var(--navy-light); }
+
+.section-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 64px;
+}
+
+.section-light .section-sub { color: rgba(10,22,40,0.5); }
+
+/* ── STEPS ───────────────────────────────── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.step-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 40px 36px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.step-card:hover { background: rgba(201,168,76,0.04); }
+
+.step-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: rgba(201,168,76,0.15);
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+
+.step-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+}
+
+/* ── MODULES ─────────────────────────────── */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--gray-light);
+}
+
+.module-card {
+  background: var(--cream);
+  padding: 40px;
+  transition: background 0.2s;
+}
+
+.module-card:hover { background: #F0EDE6; }
+
+.module-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,0.1);
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.module-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.module-desc {
+  font-size: 14px;
+  color: rgba(10,22,40,0.5);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.module-metric {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: var(--navy-light);
+  font-style: italic;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-light);
+}
+
+/* ── AUDIENCE ────────────────────────────── */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+}
+
+.audience-card {
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 36px 32px;
+  border-radius: 2px;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.audience-card:hover {
+  border-color: rgba(201,168,76,0.3);
+  background: rgba(201,168,76,0.03);
+}
+
+.audience-role {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.audience-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.audience-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.65;
+}
+
+/* ── CTA SECTION ─────────────────────────── */
+.cta-section {
+  padding: 120px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.cta-title em { font-style: italic; color: var(--gold); }
+
+.cta-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 48px;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+/* ── FOOTER ──────────────────────────────── */
+footer {
+  padding: 40px 60px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ── MODAL OVERLAY ───────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 12, 25, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  padding: 20px;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: var(--navy-mid);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 560px;
+  padding: 52px 48px;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-overlay.open .modal { transform: translateY(0); }
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.3);
+  font-size: 22px;
+  line-height: 1;
+  transition: color 0.2s;
+  font-family: 'Outfit', sans-serif;
+}
+
+.modal-close:hover { color: var(--white); }
+
+.modal-eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.modal-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+/* Form */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.form-group.full { grid-column: 1/-1; }
+
+.form-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  font-weight: 500;
+}
+
+.form-input, .form-select {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  padding: 12px 16px;
+  border-radius: 3px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  appearance: none;
+}
+
+.form-input::placeholder { color: rgba(255,255,255,0.2); }
+.form-input:focus, .form-select:focus { border-color: rgba(201,168,76,0.5); }
+
+.form-select option { background: var(--navy-mid); color: var(--white); }
+
+.form-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 24px 0;
+}
+
+.form-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 15px;
+  border: none;
+  border-radius: 3px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.form-submit:hover { background: var(--gold-light); }
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.form-note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+
+/* Success state */
+.modal-success {
+  text-align: center;
+  padding: 20px 0;
+  display: none;
+}
+
+.success-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.success-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.success-text {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.65;
+}
+
+/* ── ANIMATIONS ──────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<style>
+.article-hero {
+  background: var(--navy);
+  padding: clamp(100px, 12vw, 160px) clamp(20px, 6vw, 80px) clamp(60px, 8vw, 100px);
+  position: relative;
+  overflow: hidden;
+}
+.article-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.article-hero-inner {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.article-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.article-eyebrow-line {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+.article-eyebrow-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.article-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.12;
+  margin-bottom: 24px;
+}
+.article-headline em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+.article-standfirst {
+  font-size: clamp(16px, 1.8vw, 19px);
+  color: rgba(255,255,255,0.5);
+  line-height: 1.65;
+  max-width: 640px;
+}
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 80px) clamp(20px, 6vw, 80px);
+}
+.article-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.2;
+  margin: 48px 0 16px;
+}
+.article-body h2 em { font-style: italic; color: var(--navy-light); }
+.article-body p {
+  font-size: 16px;
+  color: rgba(10,22,40,0.7);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+.article-body strong { color: var(--navy); font-weight: 600; }
+.article-pull {
+  border-left: 3px solid var(--gold);
+  padding: 16px 24px;
+  margin: 32px 0;
+  background: var(--gold-pale);
+  border-radius: 0 6px 6px 0;
+}
+.article-pull p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-style: italic;
+  color: var(--navy);
+  margin: 0;
+  line-height: 1.4;
+}
+.article-cta {
+  background: var(--navy);
+  padding: clamp(48px, 6vw, 80px) clamp(20px, 6vw, 80px);
+  text-align: center;
+}
+.article-cta h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.article-cta h2 em { font-style: italic; color: var(--gold-light); }
+.article-cta p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 32px;
+}
+.article-footer {
+  background: var(--navy-mid);
+  padding: 24px clamp(20px, 6vw, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.article-footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 0.1em;
+}
+.article-footer-logo span { color: var(--gold); }
+.article-footer-text {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+}
+</style>
+
+</head>
+<body>
+<nav id="nav">
+  <a href="https://www.aithenor.com" class="nav-logo">AITHEN<span>OR</span></a>
+  <div class="nav-right">
+    <a href="https://www.aithenor.com/#how" class="nav-link">How it works</a>
+    <a href="https://www.aithenor.com/#modules" class="nav-link">Platform</a>
+    <a href="https://www.aithenor.com/#audience" class="nav-link">For whom</a>
+    <a href="https://www.aithenor.com/fr" class="nav-link" style="color:rgba(255,255,255,0.4); font-size:12px; letter-spacing:0.08em;">FR</a>
+    <a href="https://app.aithenor.com" class="nav-cta" style="text-decoration:none; margin-right:8px;">Login</a>
+    <button class="nav-cta" onclick="openModal()">Request Access</button>
+  </div>
+</nav>
+
+<section class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-eyebrow">
+      <div class="article-eyebrow-line"></div>
+      <div class="article-eyebrow-text">Hotel Revenue Management · AI</div>
+    </div>
+    <h1 class="article-headline">What AI actually changes<br><em>for hotel revenue management.</em></h1>
+    <p class="article-standfirst">Most AI tools for hotels do forecasting. Aithenor does something harder — and more valuable: decision-making.</p>
+  </div>
+</section>
+
+<div style="background: var(--cream);">
+<div class="article-body">
+
+  <p>Since 2023, the hotel industry has been flooded with tools claiming artificial intelligence. Automated forecasting, dynamic pricing recommendations, AI-powered chatbots for data queries. Most of them do the same thing: <strong>they tell you what is likely to happen</strong>. Almost none tell you what to do about it — and none tell you whether what you did last week actually worked.</p>
+
+  <p>That distinction matters more than any feature comparison. And it is the distinction on which Aithenor is built.</p>
+
+  <h2>Forecasting and decision-making<br><em>are different problems.</em></h2>
+
+  <p>A revenue management system like IDeaS or Duetto is excellent at forecasting demand and optimising rates in real time. That is their core function and they do it well. But they leave open the questions that every General Manager and Commercial Director asks every single week.</p>
+
+  <p>Why are we losing market share when our rates look right? Is our forward pace soft because of us or because of the market? Which negotiated accounts are going to cost us 40,000€ in unrecovered room nights if we don't act now? Did the rate decision we made on Monday actually move the needle?</p>
+
+  <div class="article-pull">
+    <p>"Forecasting tools tell you what will happen. Aithenor tells you why it's happening — and exactly what to do about it."</p>
+  </div>
+
+  <h2>What Aithenor's engine<br><em>actually does.</em></h2>
+
+  <p>The Aithenor engine cross-analyses four data sources simultaneously — daily STR, PMS market segment export, groups pipeline, and cost data — and applies causal chain logic built from 15 years of hotel commercial experience. It identifies root causes, not just symptoms. And it associates every diagnosis with a named decision: the specific action, the owner, and the estimated financial consequence.</p>
+
+  <p>Every decision is then tracked over time. The following week, Aithenor compares the observed signal against the expected outcome — and tells you whether it moved in the right direction. This is the accountability layer that no other tool in the market currently provides.</p>
+
+  <h2>Why causality is harder<br><em>than prediction.</em></h2>
+
+  <p>Predicting demand is a statistical problem. It can be solved with historical data, regression models, and sufficient computing power. Dozens of tools already do this correctly.</p>
+
+  <p>Identifying the root cause of a commercial performance problem requires something different: <strong>hotel commercial logic</strong>. Knowing that declining MPI combined with rising ARI in a context of weak group pipeline points to a channel positioning problem rather than a rate problem. Knowing that three negotiated accounts falling behind simultaneously warrants a different response depending on whether they share the same market segment or not. Knowing when to hold rate and when the market is genuinely not supporting it.</p>
+
+  <p>This logic — built from experience, not pure statistics — is what sits at the core of Aithenor. It is not generic AI. It is hotel commercial reasoning, encoded and applied at scale.</p>
+
+  <h2>Who it is built for.</h2>
+
+  <p>Aithenor is not a Revenue Manager tool exclusively. It is designed for General Managers who want to walk into the Monday meeting already knowing the answer. For Commercial Directors who want to spend their expertise deciding rather than investigating. For Asset Managers and owners who want full accountability on what was recommended, actioned, and delivered.</p>
+
+  <p>Every hotel category. Independent, chain, boutique, resort. If you have STR data, a PMS, and a groups pipeline — Aithenor can work with your property from the first week.</p>
+
+</div>
+</div>
+
+<section class="article-cta">
+  <h2>See what AI-powered commercial<br><em>intelligence looks like for your hotel.</em></h2>
+  <p>Request access. Onboarded personally within 48 hours. First full diagnosis the same week.</p>
+  <button class="btn-primary" onclick="openModal()" style="font-size:14px; padding:18px 48px;">Request Access</button>
+</section>
+
+<footer class="article-footer">
+  <div class="article-footer-logo">AITHEN<span>OR</span></div>
+  <div class="article-footer-text">© 2026 Aithenor. Hotel commercial intelligence, powered by AI. Built by hoteliers, for hoteliers.</div>
+</footer>
+
+<!-- REGISTRATION MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+
+    <!-- Form -->
+    <div id="modal-form">
+      <div class="modal-eyebrow">Request Access</div>
+      <h3 class="modal-title">Request your access</h3>
+      <p class="modal-sub">Every property is onboarded personally. We'll review your details and be in touch within 24 hours.</p>
+
+      <form onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name *</label>
+            <input class="form-input" type="text" id="firstName" placeholder="Jean" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name *</label>
+            <input class="form-input" type="text" id="lastName" placeholder="Dupont" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Professional Email *</label>
+          <input class="form-input" type="email" id="email" placeholder="j.dupont@hotelname.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Your Role *</label>
+          <select class="form-select" id="role" required>
+            <option value="" disabled selected>Select your role</option>
+            <option>General Manager</option>
+            <option>VP Commercial</option>
+            <option>VP Revenue</option>
+            <option>Director of Revenue Management</option>
+            <option>Asset Manager</option>
+            <option>Hotel Owner</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <div class="form-group">
+          <label class="form-label">Hotel Name *</label>
+          <input class="form-input" type="text" id="hotelName" placeholder="Hotel Name" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">City *</label>
+            <input class="form-input" type="text" id="city" placeholder="Paris" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Country *</label>
+            <input class="form-input" type="text" id="country" placeholder="France" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Total Rooms *</label>
+            <input class="form-input" type="number" id="rooms" placeholder="150" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Hotel Category *</label>
+            <select class="form-select" id="category" required>
+              <option value="" disabled selected>Category</option>
+              <option>Luxury Independent</option>
+              <option>Luxury Chain</option>
+              <option>Upper Upscale Independent</option>
+              <option>Upper Upscale Chain</option>
+              <option>Upscale Independent</option>
+              <option>Upscale Chain</option>
+              <option>Upper Midscale</option>
+              <option>Midscale</option>
+              <option>Boutique / Lifestyle</option>
+              <option>Resort</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="form-submit" type="submit" id="submit-btn">Request Access →</button>
+        <p class="form-note">Your data is handled confidentially. We never share property information with third parties.</p>
+      </form>
+    </div>
+
+    <!-- Success -->
+    <div class="modal-success" id="modal-success">
+      <div class="success-icon">✦</div>
+      <h3 class="success-title">Request received.</h3>
+      <p class="success-text">Thank you. We'll review your property details and be in touch within 24 hours with your access credentials and onboarding instructions.</p>
+    </div>
+
+  </div>
+</div>
+<script>
+// ── MODAL ──────────────────────────────────────────────
+function openModal() {
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+// ── FORM SUBMIT ────────────────────────────────────────
+async function submitForm(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const payload = {
+    firstName:  document.getElementById('firstName').value,
+    lastName:   document.getElementById('lastName').value,
+    email:      document.getElementById('email').value,
+    role:       document.getElementById('role').value,
+    hotelName:  document.getElementById('hotelName').value,
+    city:       document.getElementById('city').value,
+    country:    document.getElementById('country').value,
+    rooms:      document.getElementById('rooms').value,
+    category:   document.getElementById('category').value,
+    submittedAt: new Date().toISOString(),
+  };
+
+  // Save to Supabase leads table
+  try {
+    const SUPABASE_URL = 'https://fpnlzpfkygsyvkettjuj.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwbmx6cGZreWdzeXZrZXR0anVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzMDM1NzIsImV4cCI6MjA4ODg3OTU3Mn0.VsfqeclitY91kpn-qS2NBg94BJA99YMgtrmlC9Wz8ns';
+
+    await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        first_name:  payload.firstName,
+        last_name:   payload.lastName,
+        email:       payload.email,
+        role:        payload.role,
+        hotel_name:  payload.hotelName,
+        city:        payload.city,
+        country:     payload.country,
+        total_rooms: parseInt(payload.rooms),
+        category:    payload.category,
+        status:      'New',
+        submitted_at: payload.submittedAt,
+      })
+    });
+  } catch(err) {
+    console.log('Supabase save attempted:', err.message);
+  }
+
+  // Show success regardless
+  document.getElementById('modal-form').style.display = 'none';
+  document.getElementById('modal-success').style.display = 'block';
+}
+
+// ── NAV SCROLL ─────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ── REVEAL ON SCROLL ───────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── KEYBOARD CLOSE ─────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+</body>
+</html>

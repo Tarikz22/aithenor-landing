@@ -575,10 +575,9 @@ nav.scrolled {
 footer {
   padding: 40px 60px;
   border-top: 1px solid rgba(255,255,255,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  background: var(--navy);
 }
+@media (max-width: 640px) { footer { padding: 40px 24px; } }
 
 .footer-logo {
   font-family: 'Cormorant Garamond', serif;
@@ -592,6 +591,56 @@ footer {
   font-size: 12px;
   color: rgba(255,255,255,0.2);
 }
+
+
+/* ── FOOTER EXPANDED ─────────────────────── */
+.footer-inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 640px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+.footer-brand {}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 8px;
+}
+.footer-text {
+  font-size: 11px;
+  color: rgba(255,255,255,0.18);
+  line-height: 1.6;
+  max-width: 260px;
+}
+.footer-col-title {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(201,168,76,0.6);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footer-links a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.4;
+}
+.footer-links a:hover { color: rgba(201,168,76,0.8); }
 
 /* ── MODAL OVERLAY ───────────────────────── */
 .modal-overlay {
@@ -1028,8 +1077,27 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Aithenor</div>
-  <div class="footer-text">© 2026 Aithenor. Intelligence commerciale hôtelière, propulsée par l'IA. Conçue par des hôteliers, pour des hôteliers.</div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Aithenor</div>
+      <div class="footer-text">Intelligence commerciale hôtelière, propulsée par l'IA.<br>Conçue par des hôteliers, pour des hôteliers.<br>© 2026 Aithenor.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Ressources</div>
+      <ul class="footer-links">
+        <li><a href="/strategie-commerciale-hotel">Stratégie Commerciale Hôtel</a></li>
+        <li><a href="/revenue-management-ia-hotel">Revenue Management IA Hôtel</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <ul class="footer-links">
+        <li><a href="/hotel-commercial-strategy">Hotel Commercial Strategy</a></li>
+        <li><a href="/hotel-revenue-management-ai">Hotel Revenue Management & AI</a></li>
+        <li><a href="/">English version →</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
 
 <!-- REGISTRATION MODAL -->
